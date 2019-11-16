@@ -1,6 +1,7 @@
 var leftside = true;
+var counter = 0;
 
-function addPost(counter){
+function addPost(){
     //Create parent div on the left or right side of the timeline
     var newDiv = document.createElement("div");
     if(leftside){
@@ -45,6 +46,7 @@ function addPost(counter){
     mytimeline.appendChild(newDiv);
     mytimeline.appendChild(addPostButton);
     updatePosts();
+    counter++;
 }
 
 function updatePosts() {
@@ -62,6 +64,8 @@ function updatePosts() {
 
       input.addEventListener('change', function (e) {
           e.preventDefault();
+          
+          preview = input.preview;
           
           while (preview.firstChild) {
               preview.removeChild(preview.firstChild);

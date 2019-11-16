@@ -24,4 +24,3 @@ function addPost(){
     newDiv.appendChild(newDiv2);
     mytimeline.appendChild(newDiv);
 }
-

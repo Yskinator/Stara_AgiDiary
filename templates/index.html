@@ -4,14 +4,26 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style/style.css') }}">
 <script src="{{ url_for('static', filename='js/custom.js') }}"></script>
+<link href="https://fonts.googleapis.com/css?family=Lato|Open+Sans&display=swap" rel="stylesheet">
 </head>
 <body>
 
-{% if current_user.is_authenticated %}
-    <a href="/logout">Logout</a>
-{% else %}
-    <a href="/login">Login</a>
-{% endif %}
+<div class="topnav">
+    {% if current_user.is_authenticated %}
+      <a href="/logout">Logout</a>
+    {% else %}
+      <a href="/login">Login</a>
+    {% endif %}
+    <h1>Päiväkoti Arlan portti</h1>
+    <h3>Valmiusaste 100%</h3>
+    <p><b>Kuvaus:</b> This is the Borgventures Junction 2019 demo. It's an open social media wall for sharing info between stakeholders of a renovation project!</p>
+    <p><b>Yhteystiedot:</b> STARA, Aku Ankka, 050 313 31333, aku.ankka@hel.fi</p>
+    <form action="">
+      <input type="text" name="email" placeholder="email">
+      <input type="submit" value="Haluan päivityksiä projektista">
+    </form>
+</div>
+
 <div class="timeline" id="mytimeline">
     <div class="container right">
         <div class="content">

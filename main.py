@@ -4,7 +4,7 @@ from flask import Flask, request, render_template
 
 app = Flask(__name__)
 
-# http://127.0.0.1:5000/api/v1.1?deg=13.0
+# http://0.0.0.0:80/api/v1.1?deg=13.0
 @app.route('/api/<path>', methods=["post", "get"])
 def main(path):
     """Handle main path."""
@@ -15,5 +15,9 @@ def main(path):
         return render_template("index.html")
     return "Try /api/v1.1 instead."
 
+@app.route("/")
+def hello():
+    return "Hello Docker World!"
+
 if __name__ == '__main__':
-    app.run()
+     app.run(host='0.0.0.0', port=80)

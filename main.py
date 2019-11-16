@@ -2,7 +2,6 @@
 
 from flask import Flask, request, render_template, url_for, redirect
 import flask_login
-from login import login_app
 
 app = Flask(__name__)
 app.secret_key = 'verysecret'
@@ -63,12 +62,12 @@ def login():
     user = User()
     user.id = name
     flask_login.login_user(user)
-    return redirect(url_for('main')
+    return redirect(url_for('main'))
 
 @app.route('/logout')
 def logout():
     flask_login.logout_user()
-    return redirect(url_for('main')
+    return redirect(url_for('main'))
 
 if __name__ == '__main__':
      app.run(host='0.0.0.0', port=5000)

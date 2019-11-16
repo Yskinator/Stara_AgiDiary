@@ -1,0 +1,389 @@
+/*a-scene{
+    display: none;
+}*/
+
+h1{
+    float: left;
+    font-size: .875em;
+    font-family: Roboto, Arial, sans-serif;
+    margin-top: 13px;
+    margin-left: 5px;
+    margin-bottom: 0px;
+    font-weight: normal;
+}
+
+button{
+    border: none;
+    height: 42px;
+    min-width: 42px;
+    padding: 5px 8px;
+    color: #444444;
+    background: white;
+    transition: 0.1s;
+    font-size: .8em;
+}
+button:hover{
+    background-color:rgb(224, 224, 224);
+}
+button:focus, .btn:focus{
+    outline: none;
+}
+button:disabled, .btn:disabled{
+    color: rgb(224, 224, 224);
+}
+button:hover:disabled, .btn:hover:disabled{
+    background: white;
+}
+
+.whitecard0{
+    background: white;
+}
+
+.whitecard1{
+    background: white;
+    box-shadow: 0 0px 5px rgba(0,0,0,0.16), 0 3px 2px rgba(0,0,0,0.08);
+}
+
+/*
+----- ZOOM -----
+*/
+#zoomcontainer{
+    display: none;
+    position:fixed;
+    top: 70px;
+    right: 10px;
+    width: 50px;
+}
+@media only screen and (min-width: 600px) {
+    #zoomcontainer {
+        display: block;
+        top: 90px;
+        right: 20px;
+    }
+}
+.zoombtn{
+    margin-bottom: 10px;
+    width:50px;
+    height: 50px;
+    border-radius: 50%;
+    line-height: 50px;
+    text-align: center;
+    background:white;
+    box-shadow:  0 0px 5px rgba(0,0,0,0.30), 0 3px 2px rgba(0,0,0,0.16);
+}
+
+/*
+----- PANELS -----
+*/
+
+#topleftbtns{
+    position: fixed;
+    top: 20px;
+    transition: left 0.25s cubic-bezier(0.4,0.0,0.2,1);
+}
+
+#bottomleftbtns{
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    width: 70px;
+}
+
+.floatingEl{
+    height: 50px;
+    border-radius:4px;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    font-size: 12px;
+    color: #888888;
+}
+
+.menubtn{
+    margin-bottom: 10px;
+    width: 90px;
+    text-align: left;
+    transition: all 0.25s ease;
+}
+
+.floorbtn{
+    margin-bottom: 10px;
+    width: 70px;
+    text-align: left;
+}
+
+/*
+----- SAVE PANEL -----
+*/
+.hide{
+    display: none;
+}
+.savePanel{
+    width: 0px;
+    height: 0px;
+    padding: 0px;
+    overflow: hidden;
+    background-color: white;
+    /*transition: all 0.25s ease;*/
+}
+.savePanel .menubtn{
+    margin: 5px;
+    border: solid 1px #adadad;
+}
+/*
+.savePanel form{
+    margin-left: 25px;
+    margin-top: 25px;
+}
+*/
+.savePanel input{
+    display: none;
+    /*border-radius: 4px;*/
+    border: none;
+    border-bottom: solid 1px #adadad;
+
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    color: #888888;
+    font-weight: 100;
+}
+.textinput{
+    padding: 10px 0px 10px 0px;
+    width:190px;
+}
+.checkboxinput{
+    float: left;
+    margin-top: 20px;
+}
+form p{
+    display: none;
+    font-family: 'Montserrat', sans-serif;
+    margin-top: 20px;
+    margin-left: 30px;
+    font-size: 12px;
+    text-transform: initial;
+    color: #888888;
+    font-weight: 100;
+}
+#savetopic{
+    margin-top: 0px;
+    margin-left: 0px;
+}
+.openSavePanel {
+    width: 210px;
+    height: 170px;
+    padding: 25px;
+}
+.openSavePanel input, .openSavePanel p{
+    display: block;
+}
+
+/* SIDEPANEL */
+#sidepanel{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 220px;
+    display: block;
+    /*flex-direction: column;*/
+    overflow: auto;
+    background-color: white;
+    box-shadow:  0 0px 5px rgba(0,0,0,0.30), 0 3px 2px rgba(0,0,0,0.16);
+    transition: left 0.25s cubic-bezier(0.4,0.0,0.2,1);
+}
+.panelEl{
+    display: block;
+    overflow: hidden;
+    transition: all 0.4s ease;
+}
+.panelEl h3{
+    float: left;
+    margin-left: 25px;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    font-size: 24px;
+    color: #888888;
+    font-weight: 100;
+}
+.maticon{
+    float: left;
+    width:100px;
+    height:100px;
+    background-position:center;
+    background-size:cover;
+    background-color:#eee;
+    transition:width 0.5s ease;
+}
+.panelTopic{
+    height: 100px;
+}
+.panelMat{
+    height: 100px;
+    box-shadow: 0 0px 0px rgba(0,0,0,0.30), 0 0px 0px rgba(0,0,0,0.16);
+}
+.panelMat:hover{
+    box-shadow:  0 0px 5px rgba(0,0,0,0.30), 0 3px 2px rgba(0,0,0,0.16);
+}
+#sidepanel.showMat .panelEl:not(.selectedMat) {
+    height:0;
+}
+
+#sidepanel.showMat .panelEl.selectedMat {
+    height:100%;
+    /*flex-direction:column;*/
+}
+
+/* Scrollbar width */
+::-webkit-scrollbar {
+    width: 6px;
+}
+/* Scrollbar track */
+::-webkit-scrollbar-track {
+    background: #ffffff; 
+}
+/* Scrollbar handle */
+::-webkit-scrollbar-thumb {
+    background:#dfdfdf;
+    border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #cdcdcd; 
+}
+
+/* SIDEPANEL SUB MENU */
+
+.sPanBtn{
+    margin-left: 25px;
+    width: 195px;
+    text-align: left;
+}
+
+.matBtn{
+    float: left;
+    width: 80px;
+    height: 80px;
+    margin: 10px;
+    border-radius: 40px;
+}
+
+/*
+.paint_whitesmoke{
+    background-color: whitesmoke;
+}
+
+.wood_1{
+    background-image: url('../textures/wood_brown .jpg');
+    background-repeat:no-repeat;
+    background-size: 300px;
+}
+.wood_2{
+    background-image: url('../textures/WoodFine0033.jpg');
+    background-repeat:no-repeat;
+    background-size: 300px;
+}
+.wood_4{
+    background-image: url('../textures/WoodFine0086.jpg');
+    background-repeat:no-repeat;
+    background-size: 300px;
+}
+
+.woodplank_0{
+    background-image: url('../textures/wood_balls_red .jpg');
+    background-repeat:no-repeat;
+    background-size: 300px;
+}
+.woodplank_1{
+    background-image: url('../textures/wood_balls_white .jpg');
+    background-repeat:no-repeat;
+    background-size: 300px;
+}
+.woodplank_2{
+    background-image: url('../textures/wood_balls_yellow .jpg');
+    background-repeat:no-repeat;
+    background-size: 300px;
+}
+.woodplank_3{
+    background-image: url('../textures/wood_balls_dark .jpg');
+    background-repeat:no-repeat;
+    background-size: 300px;
+}
+*/
+
+/*
+.brick_0{
+    background-image: url('../textures/BrickSmallNew0099.jpg');
+    background-repeat:no-repeat;
+    background-size: 300px;
+}
+*/
+
+/*
+.metal_0{
+    background-image: url('../textures/metal_very_ligth .jpg');
+    background-repeat:no-repeat;
+    background-size: 300px;
+}
+.metal_1{
+    background-image: url('../textures/metal_dark .jpg');
+    background-repeat:no-repeat;
+    background-size: 300px;
+}
+
+.foundation_0{
+    background-image: url('../textures/foundation_grey_brick.jpg');
+    background-repeat:no-repeat;
+    background-size: 300px;
+}
+.foundation_1{
+    background-image: url('../textures/foundation_brown_brick .jpg');
+    background-repeat:no-repeat;
+    background-size: 300px;
+}
+
+.concrete_0{
+    background-image: url('../textures/ConcreteBare0428.jpg');
+    background-repeat:no-repeat;
+    background-size: 300px;
+}
+
+.marble_0{
+    background-image: url('../textures/marble_white .jpg');
+    background-repeat:no-repeat;
+    background-size: 300px;
+}
+
+.plaster_0{
+    background-image: url('../textures/plaster_grey_light .jpg');
+    background-repeat:no-repeat;
+    background-size: 300px;
+}
+
+.tiles_0{
+    background-image: url('../textures/TilesPlain0247.jpg');
+    background-repeat:no-repeat;
+    background-size: 300px;
+}
+.tiles_1{
+    background-image: url('../textures/TilesPlain_512.jpg');
+    background-repeat:no-repeat;
+    background-size: 300px;
+}
+*/
+
+/*
+.tiles_2{
+    background-image: url('../textures/TilesPlain0240.jpg');
+    background-repeat:no-repeat;
+    background-size: 300px;
+}
+*/
+
+h4{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    color: #777777;
+    float: left;
+    margin-left: 25px;
+    margin-top: 38px;
+    margin-bottom: 10px;
+}

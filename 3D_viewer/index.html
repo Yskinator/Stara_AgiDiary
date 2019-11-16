@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+  <title>Adapt XR</title>
+	<meta charset="UTF-8">
+  <script src="https://aframe.io/releases/0.9.0/aframe.min.js"></script>
+	<script type="text/javascript" src="js/custom.js"></script>
+	<link rel="stylesheet" href="/styles/common.css">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+	</head>
+	
+	<body>
+	<!--<body onload="sidePanelStart()"></body>-->
+	<!-- Scene -->
+	<a-scene background="color: #eaeaea" renderer="colorManagement: true;" vr-mode-ui="enabled: false"> <!--stats-->
+		<a-assets>
+			<a-asset-item id="house_" src="3D/kaasukello_origo.gltf"></a-asset-item>
+		</a-assets>
+
+		<!-- general -->
+		<a-entity id="camparent" position="0 20 0" rotation="0 45 0">
+			<a-entity id="camera" camera="active: true; far: 500; near: 0.1" position="0 0 50" comet-camera></a-entity> <!--comet-camera cursor="rayOrigin: mouse"></a-entity>-->
+		</a-entity>
+		<a-entity id="ambientL" light="type: ambient; color: #BBB; intensity: 1;"></a-entity>
+		<a-entity id="directionalL" light="type: directional; color: #FFF; intensity: 0.75;" position="-9 15 9"></a-entity>
+		<a-entity id="directionalL" light="type: directional; color: #FFF; intensity: 0.75;" position="0.5 15 5"></a-entity>
+
+		<!-- content -->
+		<a-entity id="house" gltf-model="#house_"></a-entity>
+	</a-scene>
+
+	<!-- left side UI -->
+	<!--
+	<div id="topleftbtns" style="left:20px;">
+		<button class="menubtn floatingEl" onclick="menuBtn()">Menu</button>
+		<div style="clear:both;"></div>
+		<button id="savebtn" class="menubtn floatingEl" onclick="savePanel()">Save</button>
+		<div class="savePanel floatingEl">
+			<form>
+				<p id='savetopic'>SAVE PLAN</p>
+				<input class="textinput" type="text" name="email" placeholder="sähköposti...">
+				<input class="checkboxinput" type="checkbox" name="consent">
+				<p>I'd like to hear more about this.</p>
+			</form>
+			<button class="menubtn floatingEl" onclick="savePanel()">Save</button>
+			<button class="menubtn floatingEl" onclick="savePanel()">Cancel</button>
+		</div>
+	</div>
+	<div id="sidepanel" style="left:-230px;">
+		<div class="panelEl panelTopic"><h3>AdaptXR</h3></div>
+		<div class="panelEl panelTopic"><h3>Readiness</h3></div>
+		<button onclick="rlevelChange(0)" class="sPanBtn">Basic</button><div style="clear:both;"></div>
+		<button onclick="rlevelChange(1)" class="sPanBtn">Almost ready</button><div style="clear:both;"></div>
+		<button onclick="rlevelChange(2)" class="sPanBtn">Ready to move</button>
+
+		<div class="panelEl panelTopic"><h3>Theme</h3></div>
+		<button onclick="themeChange(1)" class="sPanBtn">Light theme</button><div style="clear:both;"></div>
+		<button onclick="themeChange(2)" class="sPanBtn">Natural theme</button><div style="clear:both;"></div>
+		<button onclick="themeChange(3)" class="sPanBtn">Dark theme</button>
+	</div>
+
+	<div id="bottomleftbtns">
+		<button class="floorbtn floatingEl" onclick="floorChange(1)"><p>Katto</p></button>
+		<button class="floorbtn floatingEl" onclick="floorChange(0)"><p>1. krs</p></button>
+	</div>-->
+	
+  </body>
+</html>

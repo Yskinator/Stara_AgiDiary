@@ -22,6 +22,53 @@
       <div class="content">
         <h2>4.9.2019</h2>
         <p>Tarvikkeet haettu Starkista.</p>
+        
+        <form method="post" enctype="multipart/form-data">
+          <div>
+            <label for="image_upload">Lisää kuva...</label>
+            <input type="file" id="image_upload" name="image_upload" accept="image/*" capture="camera">
+          </div>
+          <div class="preview">
+            <p>Ei kuvaa lisätty.</p>
+          </div>
+          <div>
+            <button>Lisää</button>
+          </div>
+        </form>
+        
+        <script>
+          var input = document.querySelector('input');
+          var preview = document.querySelector('.preview');
+
+          input.style.opacity = 0;
+          
+          input.addEventListener('change', updateImageDisplay);
+          
+          function updateImageDisplay() {
+              while (preview.firstChild) {
+                  preview.removeChild(preview.firstChild);
+              }
+              
+              var curFiles = input.files;
+              
+              if (curFiles.length === 0) {
+                  var para = document.createElement('p');
+                  para.textContent = "Ei tiedostoa valittu.";
+                  preview.appendChild(para);
+              } else {
+                  if (validFileType(curFiles[0])) {
+                      var image = document.createElement('img');
+                      image.src = window.URL.createObjectURL(curFiles[0]);
+                      preview.appendChild(image);
+                  }
+              }
+          }
+          
+          function validFileType(file) {
+              return true;
+          }
+        </script>
+        
         <a href="{{ url_for('static', filename='img/01_Tarvikkeita_Lasku.pdf') }}" target="_blank">Lasku</a>
       </div>
     </div>

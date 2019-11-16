@@ -95,3 +95,10 @@ function updatePosts() {
 window.addEventListener('DOMContentLoaded', (event) => {
     updatePosts();
 });
+
+// LIKE BUTTON
+function like(){
+    $("span").html(function (i, val) {
+        return val * 1 + 1;
+    });
+}

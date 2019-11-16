@@ -100,5 +100,9 @@ def create_post(project_url):
     db_handler.create_post(links, images, project_id, text, timestamp, user_id)
     return jsonify(success=True)
 
+@app.route('/init/')
+def init():
+    db_handler.create_tables()
+
 if __name__ == '__main__':
      app.run(host='0.0.0.0', port=5000)

@@ -38,7 +38,12 @@ function addPost(counter){
     newDiv2.appendChild(txtDiv.firstChild);
     newDiv2.appendChild(newDiv3.firstChild);
     newDiv.appendChild(newDiv2);
+    
+    var addPostButton = mytimeline.querySelector("#addPostButton");
+    mytimeline.removeChild(addPostButton);
+    
     mytimeline.appendChild(newDiv);
+    mytimeline.appendChild(addPostButton);
     updatePosts();
 }
 
@@ -53,8 +58,6 @@ function updatePosts() {
       }
       input.preview = post.querySelector('.preview');
       
-      console.log(input.preview);
-
       input.style.opacity = 0;
 
       input.addEventListener('change', function (e) {

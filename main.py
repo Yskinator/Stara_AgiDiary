@@ -16,23 +16,14 @@ class User(flask_login.UserMixin):
     pass
 
 # http://0.0.0.0:80/api/v1.1?deg=13.0
-@app.route('/api/<path>', methods=["post", "get"])
-def main(path):
+@app.route('/')
+def main():
     """Handle main path."""
-    if path == "v1.1":
-        deg = request.args.get('deg', default=0.0, type=float)
-        print(deg)
-        #return str(deg)
-        return render_template("index.html")
-    return "Try /api/v1.1 instead."
+    return render_template("index.html")
 
 @app.route('/3D/')
 def threedee():
     return render_template("3D.html")
-
-@app.route("/")
-def hello():
-    return "Hello Docker World!"
 
 @login_manager.user_loader
 def user_loader(name):
@@ -72,12 +63,12 @@ def login():
     user = User()
     user.id = name
     flask_login.login_user(user)
-    return redirect(url_for('main', path="v1.1"))
+    return redirect(url_for('main')
 
 @app.route('/logout')
 def logout():
     flask_login.logout_user()
-    return redirect(url_for('main', path="v1.1"))
+    return redirect(url_for('main')
 
 if __name__ == '__main__':
      app.run(host='0.0.0.0', port=5000)

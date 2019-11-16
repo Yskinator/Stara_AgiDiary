@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+  <title>3D</title>
+	<meta charset="UTF-8">
+  <script src="https://aframe.io/releases/0.9.0/aframe.min.js"></script>
+	<script type="text/javascript" src="{{ url_for('static', filename='js/3D_custom.js') }}"></script>
+	<link rel="stylesheet" href="{{ url_for('static', filename='style/3D_style.css') }}">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+	</head>
+	
+	<body>
+	<!--<body onload="sidePanelStart()"></body>-->
+	<!-- Scene -->
+	<a-scene background="color: #eaeaea" renderer="colorManagement: true;" vr-mode-ui="enabled: false"> <!--stats-->
+		<a-assets>
+			<!--<a-asset-item id="house_" src="{{ url_for('static', filename='3D/kaasukello_origo.gltf') }}"></a-asset-item>-->
+			<a-asset-item id="house_" src="{{ url_for('static', filename='3D/kaasukello_origo.gltf') }}"></a-asset-item>
+		</a-assets>
+
+		<!-- general -->
+		<a-entity id="camparent" position="0 20 0" rotation="0 45 0">
+			<a-entity id="camera" camera="active: true; far: 500; near: 0.1" position="0 0 50" comet-camera></a-entity> <!--comet-camera cursor="rayOrigin: mouse"></a-entity>-->
+		</a-entity>
+		<a-entity id="ambientL" light="type: ambient; color: #BBB; intensity: 1;"></a-entity>
+		<a-entity id="directionalL" light="type: directional; color: #FFF; intensity: 0.75;" position="-9 15 9"></a-entity>
+		<a-entity id="directionalL" light="type: directional; color: #FFF; intensity: 0.75;" position="0.5 15 5"></a-entity>
+
+		<!-- content -->
+		<a-entity id="house" gltf-model="#house_"></a-entity>
+	</a-scene>
+	
+  </body>
+</html>

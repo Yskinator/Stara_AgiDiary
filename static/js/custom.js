@@ -16,8 +16,10 @@ function addPost(counter){
     var h2 = document.createElement("h2");
     h2.innerHTML = (new Date()).toLocaleDateString("fi-FI");
     //Create post text
-    var txt = document.createElement("P");
-    txt.innerHTML = "Lorem ipsum dolor sit amet, quo ei simul congue exerci";
+    //var txt = document.createElement("P");
+    //txt.innerHTML = "Lorem ipsum dolor sit amet, quo ei simul congue exerci";
+    var txtDiv = document.createElement("div");
+    txtDiv.innerHTML = '<textarea type="text" placeholder="Write here!" style="border: none;font-size: 16px;width: 100%;padding: 0px;"></textarea>';
     var newDiv3 = document.createElement("div");
     newDiv3.innerHTML = '<form method="post" enctype="multipart/form-data"> \
           <div> \
@@ -33,7 +35,7 @@ function addPost(counter){
         </form>';
 
     newDiv2.appendChild(h2);
-    newDiv2.appendChild(txt);
+    newDiv2.appendChild(txtDiv.firstChild);
     newDiv2.appendChild(newDiv3.firstChild);
     newDiv.appendChild(newDiv2);
     mytimeline.appendChild(newDiv);

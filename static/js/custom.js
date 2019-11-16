@@ -24,3 +24,10 @@ function addPost(){
     newDiv.appendChild(newDiv2);
     mytimeline.appendChild(newDiv);
 }
+
+// LIKE BUTTON
+function like(){
+    $("span").html(function (i, val) {
+        return val * 1 + 1;
+    });
+}

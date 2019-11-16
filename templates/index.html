@@ -2,6 +2,7 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style/style.css') }}">
 <script src="{{ url_for('static', filename='js/custom.js') }}"></script>
 <link href="https://fonts.googleapis.com/css?family=Lato|Open+Sans&display=swap" rel="stylesheet">
@@ -39,6 +40,7 @@
       <div class="content">
         <h2>4.9.2019</h2>
         <p>Tarvikkeet haettu Starkista.</p>
+        <img src="{{ url_for('static', filename='img/Stark.jpg') }}">
         
         <form method="post" enctype="multipart/form-data">
           <div>
@@ -96,6 +98,14 @@
         <h2>6.9.2019</h2>
         <p>Portti valmis.</p>
         <img src="{{ url_for('static', filename='img/917e2de5-0df5-44a6-96ff-9e9738876455.jpg') }}">
+
+        <!--Like painike-->
+        <button class="like" type='button' onclick="like()">
+          <i class='fa fa-thumbs-up'></i>
+          Like
+          <span>0</span>
+        </button>
+
       </div>
     </div>
 </div>

@@ -14,7 +14,7 @@ function addPost(){
     newDiv2.setAttribute("class", "content");
     //Create post header
     var h2 = document.createElement("h2");
-    h2.innerHTML = "Date";
+    h2.innerHTML = (new Date()).toLocaleDateString("fi-FI");
     //Create post text
     var txt = document.createElement("P");
     txt.innerHTML = "Lorem ipsum dolor sit amet, quo ei simul congue exerci";

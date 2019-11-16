@@ -1,7 +1,11 @@
 """Example Flask project template."""
 
-from flask import Flask, request, render_template, url_for, redirect
+from flask import Flask, jsonify, request, render_template, url_for, redirect
 import flask_login
+import db_handler
+import random
+import string
+from datetime import datetime
 
 app = Flask(__name__)
 app.secret_key = 'verysecret'
@@ -68,6 +72,33 @@ def login():
 def logout():
     flask_login.logout_user()
     return redirect(url_for('main'))
+
+@app.route('/project/', methods=["post"])
+def create_project():
+    j = request.get_json()
+    project_id = j["project_id"]
+    address = j["address"]
+    letters = string.ascii_lowercase
+    project_url = ''.join(random.choice(letters) for i in range(20))
+    db_handler.create_project(project_id, address, project_url)
+    return jsonify(success=True)
+
+@app.route('/project/<project_url>', methods=["get"])
+def fetch_project(project_url):
+    p = db_handler.fetch_project(project_url)
+    return jsonify(p)
+
+@app.route('/project/<project_url>/post', methods=["post"])
+def create_post(project_url):
+    j = request.get_json()
+    links = j["links"]
+    images = j["images"]
+    project_id = j["project_id"]
+    text = j["text"]
+    timestamp = int(datetime.now().timestamp())
+    user_id = j["user_id"]
+    db_handler.create_post(links, images, project_id, text, timestamp, user_id)
+    return jsonify(success=True)
 
 if __name__ == '__main__':
      app.run(host='0.0.0.0', port=5000)

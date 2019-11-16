@@ -15,6 +15,10 @@ def main(path):
         return render_template("index.html")
     return "Try /api/v1.1 instead."
 
+@app.route('/3D/')
+def threedee():
+    return render_template("3D.html")
+
 @app.route("/")
 def hello():
     return "Hello Docker World!"

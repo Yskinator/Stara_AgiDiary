@@ -1,6 +1,6 @@
 """Example Flask project template."""
 
-from flask import Flask, request
+from flask import Flask, request, render_template
 
 app = Flask(__name__)
 
@@ -11,7 +11,8 @@ def main(path):
     if path == "v1.1":
         deg = request.args.get('deg', default=0.0, type=float)
         print(deg)
-        return str(deg)
+        #return str(deg)
+        return render_template("index.html")
     return "Try /api/v1.1 instead."
 
 if __name__ == '__main__':

@@ -15,7 +15,7 @@ class User(flask_login.UserMixin):
     pass
 
 # http://0.0.0.0:80/api/v1.1?deg=13.0
-@app.route('/')
+@app.route('/', methods=['GET', 'POST'])
 def main():
     """Handle main path."""
     return render_template("index.html")

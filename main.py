@@ -25,7 +25,7 @@ def main():
     return render_template("index.html")
 
 @app.route('/3D/')
-def threedee():
+def disploy_3D():
     return render_template("3D.html")
 
 @login_manager.user_loader

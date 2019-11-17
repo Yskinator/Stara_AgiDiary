@@ -31,7 +31,10 @@
     <div class="container left">
         <div class="content">
         <h2>Päiväkoti Arlan portti</h2>
-        <h3>Valmiusaste 100%</h3>
+        <h3>Valmiusaste</h3>
+        <div class="progress-radial progress-100">
+            <div class="overlay">100%</div>
+        </div>
         <p><b>Kuvaus:</b> This is the Borgventures Junction 2019 demo. It's an open social media wall for sharing info between stakeholders of a renovation project!</p>
         <p><b>Yhteystiedot:</b> STARA, Aku Ankka, 050 313 31333, aku.ankka@hel.fi</p>
         <form action="">
@@ -39,6 +42,7 @@
           <input type="submit" value="Haluan päivityksiä projektista">
         </form>
         <!--<img src="{{ url_for('static', filename='img/20190828_141443_resized.jpg') }}">-->
+        <br>
         <a href="{{ url_for('static', filename='img/2_ja_3_kerros.pdf') }}" target="_blank">Pohjapiirros</a>
         <br>
         <a href="/3D/" target="_blank">3D malli</a>

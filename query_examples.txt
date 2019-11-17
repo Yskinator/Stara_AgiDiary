@@ -1,0 +1,5 @@
+curl --header "Content-Type: application/json" --request POST --data '{"project_id":"stara_internal_id","address":"Junctionland"}' https://agidiary.azurewebsites.net/project/
+
+curl --header "Content-Type: application/json" --request POST --data '{"links":["www.link1.com", "www.link2.com"],"images":["imagelink1", "imagelink2"], "project_id":1, "text":"A very descriptive description", "user_id":1}' https://agidiary.azurewebsites.net/project/odeuemjxgorhcdymxngo/post
+
+curl --header "Content-Type: application/json" --request POST --data '{"name":"Petteri"}' https://agidiary.azurewebsites.net/create_user/

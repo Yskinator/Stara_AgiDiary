@@ -146,6 +146,12 @@ def create_user(name):
     queries = ['INSERT INTO users (name) VALUES ("{}");'.format(name)]
     execute_queries(queries)
 
+def find_project_url(project_id):
+    query = 'SELECT project_url FROM projects WHERE project_id="{}";'.format(project_id)
+    url = fetch_query(query)
+    url = url[0]["project_url"]
+    return url
+
 def fetch_query(query):
     cnx = correct_mysql_connection()
     c = cnx.cursor()

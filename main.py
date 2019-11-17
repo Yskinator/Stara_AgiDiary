@@ -83,6 +83,11 @@ def create_project():
     db_handler.create_project(project_id, address, project_url)
     return jsonify(success=True)
 
+@app.route('/project/id/<project_id>/')
+def find_project(project_id):
+    url = db_handler.find_project_url(project_id)
+    return redirect('/project/'+url)
+
 @app.route('/project/<project_url>', methods=["get"])
 def fetch_project(project_url):
     p = db_handler.fetch_project(project_url)

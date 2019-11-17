@@ -142,6 +142,10 @@ def fetch_project(project_url):
     project["posts"] = posts2
     return project
 
+def create_user(name):
+    queries = ['INSERT INTO users (name) VALUES ("{}");'.format(name)]
+    execute_queries(queries)
+
 def fetch_query(query):
     cnx = correct_mysql_connection()
     c = cnx.cursor()

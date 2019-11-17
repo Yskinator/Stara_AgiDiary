@@ -100,6 +100,13 @@ def create_post(project_url):
     db_handler.create_post(links, images, project_id, text, timestamp, user_id)
     return jsonify(success=True)
 
+@app.route('/create_user/', methods=["post"])
+def create_user():
+    j = request.get_json()
+    name = j["name"]
+    db_handler.create_user(name)
+    return jsonify(success=True)
+
 @app.route('/init/')
 def init():
     db_handler.create_tables()

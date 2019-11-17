@@ -60,7 +60,7 @@ function updatePosts() {
       }
       input.preview = post.querySelector('.preview');
       
-      input.style.opacity = 0;
+      //input.style.opacity = 0;
 
       input.addEventListener('change', function (e) {
           e.preventDefault();

@@ -73,7 +73,7 @@ def logout():
     flask_login.logout_user()
     return redirect(url_for('main'))
 
-@app.route('/project/', methods=["post"])
+#@app.route('/project/', methods=["post"])
 def create_project():
     j = request.get_json()
     project_id = j["project_id"]
@@ -83,17 +83,17 @@ def create_project():
     db_handler.create_project(project_id, address, project_url)
     return jsonify(success=True)
 
-@app.route('/project/id/<project_id>/')
+#@app.route('/project/id/<project_id>/')
 def find_project(project_id):
     url = db_handler.find_project_url(project_id)
     return redirect('/project/'+url)
 
-@app.route('/project/<project_url>', methods=["get"])
+#@app.route('/project/<project_url>', methods=["get"])
 def fetch_project(project_url):
     p = db_handler.fetch_project(project_url)
     return jsonify(p)
 
-@app.route('/project/<project_url>/post', methods=["post"])
+#@app.route('/project/<project_url>/post', methods=["post"])
 def create_post(project_url):
     j = request.get_json()
     links = j["links"]
@@ -105,14 +105,14 @@ def create_post(project_url):
     db_handler.create_post(links, images, project_id, text, timestamp, user_id)
     return jsonify(success=True)
 
-@app.route('/create_user/', methods=["post"])
+#@app.route('/create_user/', methods=["post"])
 def create_user():
     j = request.get_json()
     name = j["name"]
     db_handler.create_user(name)
     return jsonify(success=True)
 
-@app.route('/init/')
+#@app.route('/init/')
 def init():
     db_handler.create_tables()
 
